@@ -2,7 +2,7 @@
 
 # set -x #echo on
 
-MOUNT_DATA_DIR=/mnt/disks/nodes/polygon
+source ../../../variables.sh
 
 BOR_DIR=${BOR_DIR:-~/.bor}
 DATA_DIR=$BOR_DIR/data
