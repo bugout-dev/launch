@@ -2,7 +2,7 @@
 
 # set -x #echo on
 
-. ../../../variables.sh
+. $HOME/launch/mainnet-v1/variables.sh
 
 BOR_DIR=${BOR_DIR:-~/.bor}
 DATA_DIR=$BOR_DIR/data

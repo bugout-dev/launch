@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-. ../../../variables.sh
+. $HOME/launch/mainnet-v1/variables.sh
 
 NODE_DIR=$HOME/node
 HEIMDALL_HOME=$HOME/.heimdalld
