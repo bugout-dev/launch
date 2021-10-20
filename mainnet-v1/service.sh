@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+. $HOME/launch/mainnet-v1/variables.sh
+
 NODE_DIR=${NODE_DIR:-$HOME/node}
 BIN_DIR=$(go env GOPATH)/bin
 USER=$(whoami)
@@ -43,7 +45,7 @@ cat > heimdalld.service <<EOF
   Restart=on-failure
   RestartSec=5s
   WorkingDirectory=$NODE_DIR
-  ExecStart=$BIN_DIR/heimdalld start
+  ExecStart=$BIN_DIR/heimdalld start --home $MOUNT_DATA_DIR/.heimdalld --with-heimdall-config $MOUNT_DATA_DIR/.heimdalld/config/heimdall-config.json
   Type=simple
   User=$USER
 
@@ -61,7 +63,7 @@ cat > heimdalld-rest-server.service <<EOF
   Restart=on-failure
   RestartSec=5s
   WorkingDirectory=$NODE_DIR
-  ExecStart=$BIN_DIR/heimdalld rest-server
+  ExecStart=$BIN_DIR/heimdalld rest-server --home $MOUNT_DATA_DIR/.heimdalld --with-heimdall-config $MOUNT_DATA_DIR/.heimdalld/config/heimdall-config.json
   Type=simple
   User=$USER
 
