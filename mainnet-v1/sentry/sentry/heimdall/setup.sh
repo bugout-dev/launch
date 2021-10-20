@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-source ../../../variables.sh
+. ../../../variables.sh
 
 NODE_DIR=$HOME/node
 HEIMDALL_HOME=$HOME/.heimdalld

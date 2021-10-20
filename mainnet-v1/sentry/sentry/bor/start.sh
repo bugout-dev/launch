@@ -2,7 +2,7 @@
 
 set -x #echo on
 
-source ../../../variables.sh
+. ../../../variables.sh
 
 # BOR_DIR=${BOR_DIR:-~/.bor}
 DATA_DIR=$BOR_DIR/data
