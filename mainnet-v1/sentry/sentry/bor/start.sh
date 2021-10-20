@@ -4,8 +4,7 @@ set -x #echo on
 
 . $HOME/launch/mainnet-v1/variables.sh
 
-# BOR_DIR=${BOR_DIR:-~/.bor}
-DATA_DIR=$BOR_DIR/data
+DATA_DIR=$BOR_DIR_MOUNTED/data
 
 bor --datadir $DATA_DIR \
   --port 30303 \
