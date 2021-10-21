@@ -7,12 +7,15 @@ set -x #echo on
 BOR_DIR=$MOUNT_DATA_DIR/.bor
 DATA_DIR=$BOR_DIR/data
 
+MOONSTREAM_NODE_POLYGON_IPC_ADDR="${MOONSTREAM_NODE_POLYGON_IPC_ADDR:-127.0.0.1}"
+MOONSTREAM_NODE_POLYGON_IPC_PORT="${MOONSTREAM_NODE_POLYGON_IPC_PORT:-18350}"
+
 bor --datadir $DATA_DIR \
   --port 30303 \
-  --http --http.addr '0.0.0.0' \
+  --http --http.addr "$MOONSTREAM_NODE_POLYGON_IPC_ADDR" \
   --http.vhosts '*' \
   --http.corsdomain '*' \
-  --http.port 8545 \
+  --http.port "$MOONSTREAM_NODE_POLYGON_IPC_PORT" \
   --ipcpath $DATA_DIR/bor.ipc \
   --http.api 'eth,net,web3,txpool,bor' \
   --syncmode 'full' \
