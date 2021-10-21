@@ -45,7 +45,7 @@ cat > heimdalld.service <<EOF
   Restart=on-failure
   RestartSec=5s
   WorkingDirectory=$NODE_DIR
-  ExecStart=$BIN_DIR/heimdalld start --home $MOUNT_DATA_DIR/.heimdalld --with-heimdall-config $MOUNT_DATA_DIR/.heimdalld/config/heimdall-config.json
+  ExecStart=$BIN_DIR/heimdalld start --home $MOUNT_DATA_DIR/.heimdalld --with-heimdall-config $MOUNT_DATA_DIR/.heimdalld/config/heimdall-config.toml
   Type=simple
   User=$USER
 
@@ -63,7 +63,7 @@ cat > heimdalld-rest-server.service <<EOF
   Restart=on-failure
   RestartSec=5s
   WorkingDirectory=$NODE_DIR
-  ExecStart=$BIN_DIR/heimdalld rest-server --home $MOUNT_DATA_DIR/.heimdalld --with-heimdall-config $MOUNT_DATA_DIR/.heimdalld/config/heimdall-config.json
+  ExecStart=$BIN_DIR/heimdalld rest-server --home $MOUNT_DATA_DIR/.heimdalld --with-heimdall-config $MOUNT_DATA_DIR/.heimdalld/config/heimdall-config.toml
   Type=simple
   User=$USER
 
