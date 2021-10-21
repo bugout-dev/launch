@@ -13,4 +13,4 @@ cp -rf $NODE_DIR/heimdall/config/genesis.json $HEIMDALL_HOME/config/
 
 # modify heimdal config
 sed -i "s|^seeds =.*|$SEEDS_LINE|" $HEIMDALL_HOME/config/config.toml
-sed -i "s|^eth_rpc_url =.*|eth_rpc_url = \"$ETHEREUM_RPC_URI\"|" $HEIMDALL_HOME/config/heimdall-config.toml
+sed -i "s|^eth_rpc_url =.*|eth_rpc_url = \"$MOONSTREAM_NODE_ETHEREUM_IPC_URI\"|" $HEIMDALL_HOME/config/heimdall-config.toml
