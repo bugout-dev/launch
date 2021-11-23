@@ -77,7 +77,7 @@ cat > heimdalld-bridge.service <<EOF
 
 [Service]
   WorkingDirectory=$NODE_DIR
-  ExecStart=$BIN_DIR/bridge start --all
+  ExecStart=$BIN_DIR/bridge start --home $MOUNT_DATA_DIR/.heimdalld --with-heimdall-config $MOUNT_DATA_DIR/.heimdalld/config/heimdall-config.toml --all
   Type=simple
   User=$USER
 
