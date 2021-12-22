@@ -7,15 +7,12 @@ set -x #echo on
 BOR_DIR=$MOUNT_DATA_DIR/.bor
 DATA_DIR=$BOR_DIR/data
 
-LOCAL_IP="$(ec2metadata --local-ipv4)"
-MOONSTREAM_NODE_POLYGON_IPC_PORT="${MOONSTREAM_NODE_POLYGON_IPC_PORT:-18350}"
-
 /home/ubuntu/go/bin/bor --datadir $DATA_DIR \
   --port 30303 \
-  --http --http.addr "$LOCAL_IP" \
+  --http --http.addr "$LOCAL_IPV4" \
   --http.vhosts '*' \
   --http.corsdomain '*' \
-  --http.port "$MOONSTREAM_NODE_POLYGON_IPC_PORT" \
+  --http.port 8545 \
   --ipcpath $DATA_DIR/bor.ipc \
   --http.api 'eth,net,web3,txpool,bor' \
   --syncmode 'full' \
