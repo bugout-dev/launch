@@ -24,8 +24,30 @@ cat > bor.service <<EOF
   RestartSec=5s
   WorkingDirectory=$NODE_DIR
   EnvironmentFile=/etc/matic/metadata
-  ExecStartPre=/bin/chmod +x $NODE_DIR/bor/start.sh
-  ExecStart=/bin/bash $NODE_DIR/bor/start.sh $VALIDATOR_ADDRESS
+  EnvironmentFile=/home/ubuntu/moonstream-secrets/app.env
+  ExecStart=/home/ubuntu/go/bin/bor --datadir $MOUNT_DATA_DIR/.bor/data \
+    --port 30303 \
+    --http --http.addr "${AWS_LOCAL_IPV4}" \
+    --http.vhosts '*' \
+    --http.corsdomain '*' \
+    --http.port 8545 \
+    --ipcpath $MOUNT_DATA_DIR/.bor/data/bor.ipc \
+    --http.api 'eth,net,web3,txpool,bor' \
+    --syncmode 'full' \
+    --networkid '137' \
+    --miner.gasprice '30000000000' \
+    --miner.gaslimit '20000000' \
+    --miner.gastarget '20000000' \
+    --txpool.nolocals \
+    --txpool.accountslots 16 \
+    --txpool.globalslots 131072 \
+    --txpool.accountqueue 64 \
+    --txpool.globalqueue 131072 \
+    --txpool.lifetime '1h30m0s' \
+    --maxpeers 200 \
+    --metrics \
+    --pprof --pprof.port 7071 --pprof.addr '0.0.0.0' \
+    -bootnodes $BOR_BOOTNODES
   Type=simple
   User=$USER
   KillSignal=SIGINT

@@ -2,31 +2,7 @@
 
 set -x #echo on
 
-. $HOME/launch/mainnet-v1/variables.sh
-
-BOR_DIR=$MOUNT_DATA_DIR/.bor
-DATA_DIR=$BOR_DIR/data
-
-/home/ubuntu/go/bin/bor --datadir $DATA_DIR \
-  --port 30303 \
-  --http --http.addr "$AWS_LOCAL_IPV4" \
-  --http.vhosts '*' \
-  --http.corsdomain '*' \
-  --http.port 8545 \
-  --ipcpath $DATA_DIR/bor.ipc \
-  --http.api 'eth,net,web3,txpool,bor' \
-  --syncmode 'full' \
-  --networkid '137' \
-  --miner.gasprice '30000000000' \
-  --miner.gaslimit '20000000' \
-  --miner.gastarget '20000000' \
-  --txpool.nolocals \
-  --txpool.accountslots 16 \
-  --txpool.globalslots 131072 \
-  --txpool.accountqueue 64 \
-  --txpool.globalqueue 131072 \
-  --txpool.lifetime '1h30m0s' \
-  --maxpeers 200 \
-  --metrics \
-  --pprof --pprof.port 7071 --pprof.addr '0.0.0.0' \
-  --bootnodes "$BOR_BOOTNODES"
+MESSAGE="Bor start moved to bor.sevice, do not call this file!"
+echo "${MESSAGE}"
+TIMESTAMP=$(date "+%H:%M:%S %d-%m-%Y")
+echo "${TIMESTAMP} ${MESSAGE} >> /home/ubuntu/bor-start-error.log"
