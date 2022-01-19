@@ -3,7 +3,7 @@
 # Common
 MOUNT_DATA_DIR="/mnt/disks/nodes/polygon"
 ETHEREUM_IP_ADDR="127.0.0.1"
-LOCAL_IPV4="$(ec2metadata --local-ipv4)"
+AWS_LOCAL_IPV4="$(ec2metadata --local-ipv4)"
 
 # Heimdall
 SEEDS_LINE='seeds = "f4f605d60b8ffaaf15240564e58a81103510631c@159.203.9.164:26656,4fb1bc820088764a564d4f66bba1963d47d82329@44.232.55.71:26656"'

@@ -9,7 +9,7 @@ DATA_DIR=$BOR_DIR/data
 
 /home/ubuntu/go/bin/bor --datadir $DATA_DIR \
   --port 30303 \
-  --http --http.addr "$LOCAL_IPV4" \
+  --http --http.addr "$AWS_LOCAL_IPV4" \
   --http.vhosts '*' \
   --http.corsdomain '*' \
   --http.port 8545 \
