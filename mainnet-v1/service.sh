@@ -47,7 +47,7 @@ cat > bor.service <<EOF
     --maxpeers 200 \
     --metrics \
     --pprof --pprof.port 7071 --pprof.addr '0.0.0.0' \
-    -bootnodes $BOR_BOOTNODES
+    --bootnodes $BOR_BOOTNODES
   Type=simple
   User=$USER
   KillSignal=SIGINT
