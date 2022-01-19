@@ -2,7 +2,8 @@
 
 # set -x #echo on
 
-. $HOME/launch/mainnet-v1/variables.sh
+NODE_DIR=${NODE_DIR:-$HOME/node}
+. $NODE_DIR/variables.env
 
 BOR_DIR=$MOUNT_DATA_DIR/.bor
 DATA_DIR=$BOR_DIR/data
@@ -24,4 +25,5 @@ fi
 
 # copy node key file
 cp $NODE_KEY $DATA_DIR/bor/
+
 echo "Setup done!"
