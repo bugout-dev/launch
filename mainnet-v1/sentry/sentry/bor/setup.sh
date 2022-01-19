@@ -2,7 +2,10 @@
 
 # set -x #echo on
 
-BOR_DIR=${BOR_DIR:-~/.bor}
+NODE_DIR=${NODE_DIR:-$HOME/node}
+. $NODE_DIR/variables.env
+
+BOR_DIR=$MOUNT_DATA_DIR/.bor
 DATA_DIR=$BOR_DIR/data
 NODE_KEY=~/nodekey
 
